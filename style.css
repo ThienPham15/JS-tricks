@@ -17,7 +17,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    top: 0;
+    position: sticky;
 }
 
 li {
@@ -34,6 +35,10 @@ section,
 footer,
 header {
     padding: 1rem;
+}
+
+section {
+    scroll-margin-top: 60px; /*scroll max until top margin is 60px*/
 }
 
 p {
@@ -57,7 +62,9 @@ p {
     right: 2rem;
 }
 
-
+.bg {
+    background-color: whitesmoke;
+}
 
 @media (max-width: 600px) {
     body {
@@ -74,7 +81,7 @@ p {
         background-color: whitesmoke;
         position: absolute;
         left: 0;
-        top: 80px;
+        top: 60px;
         width: 100%;
     }
     ul.responsive li {

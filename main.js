@@ -1,8 +1,11 @@
 const backButton = document.querySelector('#backToTop');
 const burgerButton = document.querySelector('.mobile');
 const nav = document.querySelector('nav ul'); 
+const menuItems = document.querySelectorAll('nav ul li a');
+const header = document.querySelector('header');
 
 window.onscroll = function() {scrollFunction()};
+
 
 //code from W3s about scrolling for two browsers
 function scrollFunction() {
@@ -11,9 +14,15 @@ function scrollFunction() {
     } else {
       backButton.style.display = "none";
     }
+
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        header.classList.add('bg');
+    }  else {
+        header.classList.remove('bg');
+    }
   }
   
-
+//go back to top when click the button
 function getToTop() {
     document.body.scrollTop = 0; 
     document.documentElement.scrollTop = 0; 
@@ -26,6 +35,10 @@ function burgerMenu() {
     } else {
         nav.classList.add('responsive');
     }
+}
+
+for (let item of menuItems) {
+    item.addEventListener('click', burgerMenu);
 }
 
 backButton.addEventListener('click', getToTop)
